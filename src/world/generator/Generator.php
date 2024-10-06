@@ -48,11 +48,16 @@ abstract class Generator{
 		return $convertedSeed;
 	}
 
+	public function getNetherWorld(){
+		return $this->netherWorld;
+	}
+
 	protected Random $random;
 
 	public function __construct(
 		protected int $seed,
-		protected string $preset
+		protected string $preset,
+		protected string $netherWorld,
 	){
 		$this->random = new Random($seed);
 	}
