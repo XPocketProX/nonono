@@ -357,6 +357,7 @@ class World implements ChunkManager{
 
 	/** @phpstan-var class-string<\pocketmine\world\generator\Generator> */
 	private string $generator;
+	private string $generator2;
 
 	private bool $unloaded = false;
 	/**
