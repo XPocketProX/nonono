@@ -27,15 +27,19 @@ final class GeneratorManagerEntry{
 
 	/**
 	 * @phpstan-param class-string<Generator> $generatorClass
+     * @phpstan-param class-string<Generator> $generatorClass2
 	 * @phpstan-param \Closure(string) : ?InvalidGeneratorOptionsException $presetValidator
 	 */
 	public function __construct(
 		private string $generatorClass,
+		private string $generatorClass2,
 		private \Closure $presetValidator
 	){}
 
 	/** @phpstan-return class-string<Generator> */
 	public function getGeneratorClass() : string{ return $this->generatorClass; }
+
+	public function getGeneratotClass2() : string{ return $this->generatorClass2; }
 
 	/**
 	 * @throws InvalidGeneratorOptionsException
