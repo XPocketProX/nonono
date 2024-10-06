@@ -61,12 +61,17 @@ final class WorldCreationOptions{
 	/**
 	 * @phpstan-param class-string<Generator> $generatorClass
 	 * @return $this
-	 */
+     */
 	public function setGeneratorClass(string $generatorClass) : self{
 		Utils::testValidInstance($generatorClass, Generator::class);
 		$this->generatorClass = $generatorClass;
 		return $this;
 	}
+
+	/**
+     * @phpstan-param class-string<Generator> $generatorClass2
+   	 * @return $this
+	 */
 
 	public function setGeneratorClass2(string $generatorClass2) : self{
 		Utils::testValidInstance($generatorClass2, Generator::class);
