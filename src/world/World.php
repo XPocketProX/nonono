@@ -491,6 +491,7 @@ class World implements ChunkManager{
 			throw new AssumptionFailedError("WorldManager should already have checked that the generator exists");
 		$generator->validateGeneratorOptions($this->provider->getWorldData()->getGeneratorOptions());
 		$this->generator = $generator->getGeneratorClass();
+		$this->generator2 = $generator->getGeneratorClass2();
 		$this->chunkPopulationRequestQueue = new \SplQueue();
 		$this->addOnUnloadCallback(function() : void{
 			$this->logger->debug("Cancelling unfulfilled generation requests");
