@@ -126,6 +126,10 @@ final class GeneratorManager{
 			if($c->getGeneratorClass() === $class){
 				return $name;
 			}
+
+			if($c->getGeneratorClass2() === $class){
+				return $name;
+			}
 		}
 
 		throw new \InvalidArgumentException("Generator class $class is not registered");
