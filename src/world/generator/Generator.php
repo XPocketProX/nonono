@@ -48,7 +48,7 @@ abstract class Generator{
 		return $convertedSeed;
 	}
 
-	public function getNetherWorld(){
+	public function getNetherWorld() : string{
 		return $this->netherWorld;
 	}
 
