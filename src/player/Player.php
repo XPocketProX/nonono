@@ -337,39 +337,6 @@ class Player extends Human implements CommandSender, ChunkListener, IPlayer{
 		parent::__construct($spawnLocation, $this->playerInfo->getSkin(), $namedtag);
 	}
 
-	public function attackBlock(Vector3 $pos, int $face) : bool{
-		if($pos->distanceSquared($this->location) > 10000){
-			return false; //TODO: maybe this should throw an exception instead?
-		}
-
-		$target = $this->getWorld()->getBlock($pos);
-
-		$ev = new PlayerInteractEvent($this, $this->inventory->getItemInHand(), $target, null, $face, PlayerInteractEvent::LEFT_CLICK_BLOCK);
-		if($this->isSpectator()){
-			$ev->cancel();
-		}
-		$ev->call();
-		if($ev->isCancelled()){
-			return false;
-		}
-		$this->broadcastAnimation(new ArmSwingAnimation($this), $this->getViewers());
-		if($target->onAttack($this->inventory->getItemInHand(), $face, $this)){
-			return true;
-		}
-
-		$block = $target->getSide($face);
-		if($block->getTypeId() === BlockTypeIds::FIRE or $block->getTypeId() === BlockTypeIds::SOUL_FIRE){
-			$this->getWorld()->setBlock($block->getPosition(), VanillaBlocks::AIR());
-			$this->getWorld()->addSound($block->getPosition()->add(0.5, 0.5, 0.5), new FireExtinguishSound());
-			return true;
-		}
-
-		if(!$this->isCreative() && !$block->getBreakInfo()->breaksInstantly()){
-			$this->blockBreakHandler = new SurvivalBlockBreakHandler($this, $pos, $target, $face, 16);
-		}
-		return true;
-	}
-
 	protected function initHumanData(CompoundTag $nbt) : void{
 		$this->setNameTag($this->username);
 	}
