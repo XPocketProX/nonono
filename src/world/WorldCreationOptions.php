@@ -68,7 +68,7 @@ final class WorldCreationOptions{
 		return $this;
 	}
 
-	public function setGeneratorClass(string $generatorClass2) : self{
+	public function setGeneratorClass2(string $generatorClass2) : self{
 		Utils::testValidInstance($generatorClass2, Generator::class);
 		$this->generatorClass2 = $generatorClass2;
 		return $this;
