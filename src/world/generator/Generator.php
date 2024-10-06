@@ -57,7 +57,7 @@ abstract class Generator{
 	public function __construct(
 		protected int $seed,
 		protected string $preset,
-		protected string $netherWorld,
+		protected string $netherWorld
 	){
 		$this->random = new Random($seed);
 	}
