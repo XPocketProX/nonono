@@ -26,8 +26,7 @@ namespace pocketmine\world\generator;
 final class GeneratorManagerEntry{
 
 	/**
-	 * @phpstan-param class-string<Generator> $generatorClass
-     * @phpstan-param class-string<Generator> $generatorClass2
+	 * @phpstan-param class-string<Generator> $generatorClass, $generatorClass2
 	 * @phpstan-param \Closure(string) : ?InvalidGeneratorOptionsException $presetValidator
 	 */
 	public function __construct(
@@ -38,7 +37,6 @@ final class GeneratorManagerEntry{
 
 	/** @phpstan-return class-string<Generator> */
 	public function getGeneratorClass() : string{ return $this->generatorClass; }
-
 	public function getGeneratotClass2() : string{ return $this->generatorClass2; }
 
 	/**
