@@ -25,6 +25,7 @@ namespace pocketmine\player;
 
 use pocketmine\block\BaseSign;
 use pocketmine\block\Bed;
+use pocketmine\block\BlockTypeIds;
 use pocketmine\block\BlockTypeTags;
 use pocketmine\block\UnknownBlock;
 use pocketmine\block\VanillaBlocks;
